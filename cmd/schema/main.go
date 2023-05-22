@@ -28,7 +28,7 @@ func main() {
 		panic(err)
 	}
 
-	file, err := os.Create("gameplan-schema.json")
+	file, err := os.Create("pkg/schema/gameplan-schema.json")
 	if err != nil {
 		panic(err)
 	}

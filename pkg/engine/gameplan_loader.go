@@ -65,12 +65,6 @@ func (g *GameplanInstance) Load() error {
 		return err
 	}
 
-	var yamlData interface{}
-	err = yaml.Unmarshal(yamlText, &yamlData)
-	if err != nil {
-		return err
-	}
-  
 	err = yaml.Unmarshal(yamlText, &gameplanDefinition)
 	if err != nil {
 		return err
