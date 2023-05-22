@@ -22,7 +22,7 @@ func (g *GameplanInstance) Validate() error {
 		return err
 	}
 
-	schemaData, err := os.ReadFile("../../gameplan-schema.json")
+	schemaData, err := os.ReadFile("../schema/gameplan-schema.json")
 	if err != nil {
 		return err
 	}
