@@ -1,0 +1,79 @@
+{
+  "$defs": {
+    "GameplanDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "steps": {
+          "items": {
+            "$ref": "#/$defs/GameplanStep"
+          },
+          "type": "array"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "version",
+        "name",
+        "description",
+        "steps"
+      ],
+      "type": "object"
+    },
+    "GameplanStep": {
+      "additionalProperties": false,
+      "properties": {
+        "commandOptions": {
+          "$ref": "#/$defs/GameplanStepCommandOptions"
+        },
+        "description": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "templateOptions": {
+          "$ref": "#/$defs/GameplanStepTemplateOptions"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    },
+    "GameplanStepCommandOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "command": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GameplanStepTemplateOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "destination": {
+          "type": "string"
+        },
+        "template": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "$id": "https://github.com/mxcd/gameplan/pkg/schema/gameplan-definition",
+  "$ref": "#/$defs/GameplanDefinition",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

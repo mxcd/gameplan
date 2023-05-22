@@ -1,0 +1,2 @@
+Hello {{ .Data.Name }},
+this is a tempalte with a variable

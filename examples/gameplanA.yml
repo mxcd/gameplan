@@ -1,0 +1,26 @@
+version: "^1.0.0"
+name: gameplanA
+description: Gameplan A
+steps:
+  - name: "Step 1: create test directory"
+    description: "Creating a test directory"
+    type: command
+    commandOptions:
+      command: mkdir -p foo/bar
+  - name: "Step 2: create test file"
+    description: "Creating a test file"
+    type: command
+    commandOptions:
+      command: touch foo/bar/test.txt
+  - name: "Step 3: template a file"
+    description: "Templating a file"
+    type: template
+    templateOptions:
+      template: "templateA.txt"
+      destination: "foo/bar/templatedA.txt"
+  - name: "Step 4: template another file"
+    description: "Templating another file"
+    type: template
+    templateOptions:
+      template: "sub/dir/templateB.txt"
+      destination: "foo/bar/templatedB.txt"
