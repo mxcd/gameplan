@@ -28,6 +28,11 @@ func main() {
 		panic(err)
 	}
 
+	goJsonSchema := `
+	package schema
+	const GameplanJsonSchema = ` + "`" + string(data) + "`" + `
+	`
+
 	file, err := os.Create("pkg/schema/gameplan-schema.json")
 	if err != nil {
 		panic(err)
@@ -36,5 +41,15 @@ func main() {
 
 	w := bufio.NewWriter(file)
 	w.Write(indentedData)
+	w.Flush()
+
+	file, err = os.Create("pkg/schema/json_schema.go")
+	if err != nil {
+		panic(err)
+	}
+	defer file.Close()
+
+	w = bufio.NewWriter(file)
+	w.Write([]byte(goJsonSchema))
 	w.Flush()
 }

@@ -5,6 +5,7 @@ import (
 	"os"
 	"strings"
 
+	"github.com/mxcd/gameplan/pkg/schema"
 	"github.com/santhosh-tekuri/jsonschema/v5"
 	"gopkg.in/yaml.v3"
 )
@@ -22,14 +23,8 @@ func (g *GameplanInstance) Validate() error {
 		return err
 	}
 
-	schemaData, err := os.ReadFile("../schema/gameplan-schema.json")
-	if err != nil {
-		return err
-	}
-	schemaString := string(schemaData)
-
 	compiler := jsonschema.NewCompiler()
-	err = compiler.AddResource("gameplan-schema.json", strings.NewReader(schemaString))
+	err = compiler.AddResource("gameplan-schema.json", strings.NewReader(schema.GameplanJsonSchema))
 	if err != nil {
 		return err
 	}
